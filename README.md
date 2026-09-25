@@ -49,6 +49,8 @@ If your PostgreSQL username, password, or database name is different, update `DA
 
 The app uses a scikit-learn Random Forest classifier trained on generated sample data. The model is saved locally and loaded when the API starts. Its risk predictions are for demonstration and have not been clinically validated.
 
+To prepare the supplied research files, put them in your Downloads folder, install backend requirements, then run `python prepare_training_data.py` from `backend`. Prepared CSV files are written to `backend/data/processed`. The script groups the split by participant and fits standardization on training rows only. The source files do not include risk labels. After adding reviewed labels to a copy of `risk_labels_template.csv`, run `python prepare_training_data.py --labels-file data/processed/risk_labels.csv`. Prepared data stays out of Git by default.
+
 ## Tests
 
 From the `backend` folder, run `python -m pytest`.
